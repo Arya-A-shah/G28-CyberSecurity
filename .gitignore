@@ -1,0 +1,4 @@
+*.pp
+*.mod
+tmp/
+*.log

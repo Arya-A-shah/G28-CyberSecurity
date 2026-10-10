@@ -1,0 +1,2 @@
+# Security administrator: the only role that can change SELinux policy
+secadm1 ALL=(ALL) TYPE=secadm_t ROLE=secadm_r ALL

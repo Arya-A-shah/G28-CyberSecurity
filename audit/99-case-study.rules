@@ -1,0 +1,14 @@
+## Tamper-resistant auditing for the SELinux case study (report section 4.9)
+## Verify on target system.
+
+# A root process (uid 0) reading files that belong to another login user
+-a always,exit -F arch=b64 -S openat -F dir=/srv/repo -F uid=0 -C auid!=obj_uid -k admin_snoop
+
+# Any read of data labelled s3 or above
+-a always,exit -F arch=b64 -S openat -F obj_lev_low=s3 -k classified_read
+
+# Changes to SELinux policy and configuration
+-w /etc/selinux/ -p wa -k selinux_policy_change
+
+# Lock the audit configuration until the next reboot (must be the last rule)
+-e 2

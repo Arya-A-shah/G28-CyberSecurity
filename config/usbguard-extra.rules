@@ -1,0 +1,2 @@
+# Block USB mass-storage devices (interface class 08), report section 4.7
+reject with-interface one-of { 08:*:* }

@@ -1,0 +1,15 @@
+# Illustrative assertion (report section 4.10) - verify on target system.
+# States that the system administrator domain must never write or delete audit logs.
+# If the build fails because the base policy already allows this, that result is
+# itself evidence for the report.
+#
+# Build:  make -f /usr/share/selinux/devel/Makefile local_auditguard.pp
+module local_auditguard 1.0;
+
+require {
+    type sysadm_t;
+    type auditd_log_t;
+    class file { write unlink };
+}
+
+neverallow sysadm_t auditd_log_t:file { write unlink };

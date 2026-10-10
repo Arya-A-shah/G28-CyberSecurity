@@ -1,0 +1,2 @@
+# Audit administrator: owns the audit trail (verify on target system)
+auditadm1 ALL=(ALL) TYPE=auditadm_t ROLE=auditadm_r ALL

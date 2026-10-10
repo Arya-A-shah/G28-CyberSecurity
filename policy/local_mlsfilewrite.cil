@@ -1,0 +1,5 @@
+; Separation-of-duties test (report section 4.10).
+; This documented one-line exception would let staff_t write down to lower levels.
+; admin1 (sysadm_r) should FAIL to load it; secadm1 (secadm_r) should succeed.
+; Remove it immediately after the test:  semodule -r local_mlsfilewrite
+(typeattributeset mlsfilewrite (staff_t))
